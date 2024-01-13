@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+  
+</head>
+
+<body>
+  <div class="login">
+    <h1>Predict Load Carrying Capacity </h1>
+  </div>
+  
+ <div class="login-container">
+   <div class="form">
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <div class="input-group">
+        <select name="Model" id="Model">
+          <div class="select-wrapper">
+        <option value ="0">Choose a model</option>
+        <option value="1">Linear and Xgboost Reg</option>
+        <option value="2">Linear and RandomForest Reg</option>
+        <option value="3">Linear and GradientBoosting Reg</option>
+        <option value="4">Bagging and GradientBoosting Reg</option>
+        <option value="5">Bagging and ExtraTree Reg</option>
+        <option value="6">Linear and Bagging Reg</option>
+          </div>
+      </div>
+      <div class="input-group">
+    	<input type="text" name="ecc" placeholder="Ecentricity(mm)" required="required" />
+      </div>
+      <div class="input-group">
+        <input type="text" name="Ch" placeholder="Column height(mm)" required="required" />
+      </div>
+        <div class="input-group">
+		<input type="text" name="CS" placeholder="Compressive strength of std cylinder(MPa)" required="required" />
+  </div>
+    <div class="input-group">
+    	<input type="text" name="od" placeholder="Outer diameter of steel tube(mm)" required="required" />
+    </div>
+      <div class="input-group">
+        <input type="text" name="th" placeholder="Thickness of steel tube(mm)" required="required" />
+      </div>
+        <div class="input-group">
+		<input type="text" name="ys" placeholder="Yield strength of tube(MPa)" required="required" />
+  </div>
+    <div class="input-group">
+    	<input type="text" name="tt" placeholder="Total thickness of FRP Wraps(mm)" required="required" />
+    </div>
+      <div class="input-group">
+        <input type="text" name="em" placeholder="Elastic modulus of FRP(MPa)" required="required" />
+      </div>
+        <div class="input-group">
+		<input type="text" name="cc" placeholder="c/c spacing of FRP(mm)" required="required" />
+  </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   
+ </div>
+</div>
+
+</body>
+
+</html>
+
