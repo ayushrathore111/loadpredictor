@@ -1,19 +1,18 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
-import pickle
+import joblib
 from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
 import warnings
 warnings.filterwarnings('ignore')
 
 app = Flask(__name__)
-lr_loaded = pickle.load(open('./static/lr.pkl','rb'))
-xg_loaded = pickle.load(open('./static/xg.pkl','rb'))
-etr_loaded = pickle.load(open('./static/etr.pkl','rb'))
-gbr_loaded = pickle.load(open('./static/gbr.pkl','rb'))
-br_loaded = pickle.load(open('./static/br.pkl','rb'))
-rf_loaded = pickle.load(open('./static/rf.pkl','rb'))
-import pandas as pd 
+lr_loaded = joblib.load('./static/lr.joblib')
+xg_loaded = joblib.load('./static/xg.joblib')
+etr_loaded = joblib.load('./static/etr.joblib')
+gbr_loaded = joblib.load('./static/gbr.joblib')
+br_loaded = joblib.load('./static/br.joblib')
+rf_loaded = joblib.load('./static/rf.joblib')
 
 @app.route('/')
 def home():
