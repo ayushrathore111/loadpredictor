@@ -3,6 +3,8 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
+import warnings
+warnings.filterwarnings('ignore')
 
 app = Flask(__name__)
 lr_loaded = pickle.load(open('./static/lr.pkl','rb'))
