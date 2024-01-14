@@ -23,7 +23,16 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    int_features = [int(x) for x in request.form.values()]
+    for x in request.form.values():
+        try:
+            int_features.append(int(float(x)))
+        except ValueError:
+            # Handle the case where conversion is not possible
+            print(f"Skipping invalid value: {x}")
+
+    # Now int_features contains the successfully converted integer values
+    print(int_features)
+    # int_features = [int(x) for x in request.form.values()]
     mo= int_features[0]
     prediction=[]
     output=0
