@@ -80,7 +80,7 @@ def predict():
     output = round(prediction[0], 2)
     print(output)
 
-    return render_template('temp.html', prediction_text='Load carrying capacity of sample should be {}kN'.format(output))
+    return render_template('temp.html', prediction_text='The predicted load carrying capacity of the sample is {}kN'.format(output))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000)
