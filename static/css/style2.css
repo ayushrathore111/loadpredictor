@@ -104,6 +104,8 @@ footer {
   text-align: center;
   position: fixed;
   bottom: 0;
+  color: black; /* Set font color to black */
+  font-family: 'Times New Roman', Times, serif;
   width: 100%;
 }
 
