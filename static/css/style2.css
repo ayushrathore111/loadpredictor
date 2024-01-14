@@ -98,6 +98,15 @@ input:focus {
     background: #2980b9;
 }
 
+footer {
+  background-color: #f0f0f0; /* Choose your preferred background color */
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 @media only screen and (max-width: 600px) {
     .login-container {
         flex-direction: column;
