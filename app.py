@@ -23,6 +23,7 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
+    int_features=[]
     for x in request.form.values():
         try:
             int_features.append(int(float(x)))
