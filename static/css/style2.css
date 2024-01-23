@@ -1,20 +1,20 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
     background:rgb(159, 193, 215);
     color: #fff;
     overflow-x: hidden;
-}
+} */
 
-.login-container {
-    display: flex;
+/* .login-container {
+    display:grid;
     align-items: center;
     justify-content: center;
     height: 80%;
-    width: 70%;
+    width: 90%;
     margin: auto;
-}
+} */
 
 .login {
     text-align: center;
@@ -38,14 +38,13 @@ res {
     border: 5px solid black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 100%;
-    max-width: 400px;
     font-weight: bold;
     margin: 20px;
 }
-
+/* 
 .input-group {
     margin-bottom: 20px;
+    margin-right: 25px;
 }
 
 select,
@@ -54,7 +53,6 @@ input {
     padding: 10px;
     font-size: 14px;
     font-weight: bold;
-    color: #555;
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -73,7 +71,6 @@ input:focus {
 
 .select-wrapper::after {
     content: '\25BC';
-    /* Unicode character for down arrow */
     font-size: 18px;
     color: #3498db;
     position: absolute;
@@ -98,25 +95,4 @@ input:focus {
     background: #2980b9;
 }
 
-footer {
-  background-color: #f0f0f0; /* Choose your preferred background color */
-  padding: 10px;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  color: black; /* Set font color to black */
-  font-family: 'Times New Roman', Times, serif;
-  width: 100%;
-}
-
-@media only screen and (max-width: 600px) {
-    .login-container {
-        flex-direction: column;
-        position: absolute;
-        margin: auto;
-    }
-    .form {
-        width: 90%;
-        margin: 20px auto;
-    }
-}
+ */
