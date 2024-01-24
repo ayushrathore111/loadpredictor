@@ -2,17 +2,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
-    background:rgb(159, 193, 215);
     color: #fff;
     overflow-x: hidden;
 }
 
 .login-container {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    height: 80%;
-    width: 70%;
+    width: 100%;
+    background: rgb(186, 212, 230);
     margin: auto;
 }
 
@@ -21,6 +20,7 @@ body {
     padding: 20px;
     background: rgba(100, 128, 205, 0.8);
     color: #fff;
+    font-weight: bold;
     border-radius: 8px;
     width: 100%;
 }
@@ -30,22 +30,19 @@ res {
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
     font-size: 32px;
+    font-weight: bolder;
+    color: black;
 }
 
 .form {
-    background: rgba(11, 11, 11, 0.8);
+    background: rgb(237, 205, 205);
     border-radius: 8px;
     border: 5px solid black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 100%;
-    max-width: 400px;
     font-weight: bold;
-    margin: 20px;
-}
-
-.input-group {
-    margin-bottom: 20px;
+    margin: 45px;
+    width: 40vw;
 }
 
 select,
@@ -78,7 +75,7 @@ input:focus {
     color: #3498db;
     position: absolute;
     top: 50%;
-    right: 10px;
+    /* right: 10px; */
     transform: translateY(-50%);
 }
 
@@ -90,6 +87,7 @@ input:focus {
     background: #3498db;
     border: none;
     border-radius: 4px;
+    margin-top: 10px;
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -99,20 +97,29 @@ input:focus {
 }
 
 footer {
-  background-color: #f0f0f0; /* Choose your preferred background color */
-  padding: 10px;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  color: black; /* Set font color to black */
-  font-family: 'Times New Roman', Times, serif;
-  width: 100%; 
+    background-color: #b1c2e5;
+    /* Choose your preferred background color */
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    /* margin-top: auto; */
+    color: black;
+    /* font-size: medium; */
+    /* Set font color to black */
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+}
+
+footer p {
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 @media only screen and (max-width: 600px) {
     .login-container {
         flex-direction: column;
-        position: absolute;
+        position: relative;
         margin: auto;
     }
     .form {
