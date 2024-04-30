@@ -1,130 +1,81 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ML API</title>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="static/css/style2.css">
 </head>
-
 <body>
     <div class="login">
-        <h1 class="fw-bold">Evaluation of Load Carrying Capacity </h1>
+        <h1>Evaluation of Load Carrying Capacity</h1>
     </div>
 
     <div class="login-container">
         <div class="form">
-            <!-- Main Input For Receiving Query to our ML -->
-            <form action="{{ url_for('predict')}}" method="post">
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Model:</label>
-                    </div>
-                    <div class="col-10">
-                        <select name="Model" id="Model">
-                            <div class="select-wrapper">
-                            <option value ="0">Choose a model</option>
-                            <option value="1">Linear and Xgboost Reg</option>
-                            <option value="2">Linear and RandomForest Reg</option>
-                            <option value="3">Linear and GradientBoosting Reg</option>
-                            <option value="4">Bagging and GradientBoosting Reg</option>
-                            <option value="5">Bagging and ExtraTree Reg</option>
-                            <option value="6">Linear and Bagging Reg</option>
-                            </div>
-                            </select>
-                    </div>
+            <form  action="{{ url_for('predict')}}" method="post">
+                <div class="row">
+                    <label for="model">Model:</label>
+                    <select name="model" id="model">
+                        <option value ="0">Choose a model</option>
+                        <option value="1">Linear and Xgboost Reg</option>
+                        <option value="2">Linear and RandomForest Reg</option>
+                        <option value="3">Linear and GradientBoosting Reg</option>
+                        <option value="4">Bagging and GradientBoosting Reg</option>
+                        <option value="5">Bagging and ExtraTree Reg</option>
+                        <option value="6">Linear and Bagging Reg</option>         
+                    </select>
                 </div>
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Eccentricity (mm):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="ecc" required="required" />
-                    </div>
+                <div class="row">
+                    <label for="eccentricity">Eccentricity (mm):</label>
+                    <input type="text" id="eccentricity" name="ecc" required>
                 </div>
+                <div class="row">
+                    <label for="inputPassword6" class="col-form-label">Column height (mm):</label>
+                    <input type="text" name="Ch" required="required" />
+                </div>
+                <div class="row">
+                    <label for="inputPassword6" class="col-form-label">Compressive strength of std cylinder (MPa):</label>
+                    <input type="text" name="CS" required="required" />
+                </div>
+                <div class="row">
+                    <label for="inputPassword6" class="col-form-label">Thickness of steel tube (mm):</label>
+                    <input type="text" name="th" required="required" />
+                </div>
+                <div class="row">
+                    <label for="inputPassword6" class="col-form-label">Yield strength of tube (MPa):</label>
+                    <input type="text" name="ys" required="required" />
+                </div>
+                <div class="row">
+                    <label for="inputPassword6" class="col-form-label">Total thickness of FRP Wraps (mm):</label>
+                    <input type="text" name="tt" required="required" />
+                </div>
+                <div class="row">
+                    <label for="inputPassword6" class="col-form-label">Elastic modulus of FRP (MPa):</label>
+                    <input type="text" name="em" required="required" />
+                </div>
+                <label for="inputPassword6" class="col-form-label">Outer diameter of steel tube (mm):</label>
+                <div class="row">
+                    
+                    <input type="text" name="od" required="required" />
+                </div>
+                <div class="row">
+                    <label for="inputPassword6" class="col-form-label">c/c spacing of FRP (mm):</label>
+                    <input type="text" name="cc" required="required" />
 
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Column height (mm):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="Ch" required="required" />
-                    </div>
                 </div>
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Compressive strength of std cylinder (MPa):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="CS" required="required" />
-                    </div>
+                <!-- Add more rows for other input fields -->
+                <div class="row">
+                    <button type="submit">Predict</button>
                 </div>
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Outer diameter of steel tube (mm):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="od" required="required" />
-                    </div>
-                </div>
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Thickness of steel tube (mm):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="th" required="required" />
-                    </div>
-                </div>
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Yield strength of tube (MPa):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="ys" required="required" />
-                    </div>
-                </div>
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Total thickness of FRP Wraps (mm):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="tt" required="required" />
-                    </div>
-                </div>
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">Elastic modulus of FRP (MPa):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="em" required="required" />
-                    </div>
-                </div>
-                <div class="row m-3">
-                    <div class="col-1 text-center">
-                        <label for="inputPassword6" class="col-form-label">c/c spacing of FRP (mm):</label>
-                    </div>
-                    <div class="col-10">
-                        <input type="text" name="cc" required="required" />
-                    </div>
-                </div>
-                <div class="row-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-                </div>
-
             </form>
-
-
         </div>
     </div>
+
     <footer>
         <p>This GUI is developed by Ayush Rathore, a graduate student of Dr Mahesh Patel, Department of Civil Engineering, Dr BR Ambedkar National institute of Technology, Jalandhar, India</p>
     </footer>
 </body>
-
 </html>
+
+

@@ -8,9 +8,7 @@ body {
 
 .login-container {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
-    width: 100%;
     background: rgb(186, 212, 230);
     margin: auto;
 }
@@ -25,8 +23,7 @@ body {
     width: 100%;
 }
 
-.login h1,
-res {
+.login h1 {
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
     font-size: 32px;
@@ -43,6 +40,16 @@ res {
     font-weight: bold;
     margin: 45px;
     width: 40vw;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: black;
 }
 
 select,
@@ -68,18 +75,7 @@ input:focus {
     border-color: #3498db;
 }
 
-.select-wrapper::after {
-    content: '\25BC';
-    /* Unicode character for down arrow */
-    font-size: 18px;
-    color: #3498db;
-    position: absolute;
-    top: 50%;
-    /* right: 10px; */
-    transform: translateY(-50%);
-}
-
-.btn {
+button {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -92,21 +88,17 @@ input:focus {
     transition: background 0.3s;
 }
 
-.btn:hover {
+button:hover {
     background: #2980b9;
 }
 
 footer {
     background-color: #b1c2e5;
-    /* Choose your preferred background color */
     padding: 10px;
     text-align: center;
     position: relative;
     bottom: 0;
-    /* margin-top: auto; */
     color: black;
-    /* font-size: medium; */
-    /* Set font color to black */
     font-family: 'Times New Roman', Times, serif;
     width: 100%;
 }
@@ -114,16 +106,4 @@ footer {
 footer p {
     font-size: 20px;
     font-weight: bolder;
-}
-
-@media only screen and (max-width: 600px) {
-    .login-container {
-        flex-direction: column;
-        position: relative;
-        margin: auto;
-    }
-    .form {
-        width: 90%;
-        margin: 20px auto;
-    }
 }
